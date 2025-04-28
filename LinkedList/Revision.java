@@ -210,41 +210,79 @@ public class Revision {
         }
     }
 
+    //Rearrage LL in ZIG ZAg
+    public  void zigZag(Node head){
+        Node temp=head;
+        boolean flag=true;///true for odd position and false for even podsition
+        while(temp!=null && temp.next!=null){
+            if(flag){//checking at odd position ==>a<b current must be less than next
+                if(temp.data>temp.next.data){
+            
+                    //swap
+                    int val=temp.data;
+                    temp.data=temp.next.data;
+                    temp.next.data=val;
+                }
+
+            }
+            else{
+                //checking at even position ===>b>c  current must be greater than next
+
+                if(temp.data<temp.next.data){
+            
+                    //swap
+                    int val=temp.data;
+                    temp.data=temp.next.data;
+                    temp.next.data=val;
+                }
+
+
+            }
+            flag=!flag;
+            temp=temp.next;
+        }
+
+        
+    }
+
     public static void main(String[] args) {
         Revision ll = new Revision();
-        ll.addAtStart(6);
         ll.addAtStart(4);
         ll.addAtStart(3);
         ll.addAtStart(2);
+        ll.addAtStart(1);
+        // ll.display();
+        // ll.addAtLast(10);
+        // ll.addAtLast(20);
+        // ll.addAtLast(30);
+        // ll.addAtLast(40);
+        // ll.display();
+        // ll.addAtIndex(11, 0);
+        // ll.display();
+        // ll.addAtIndex(22, 9);
+        // ll.display();
+        // ll.addAtIndex(33, 9);
+        // ll.display();
+        // // ll.deleteAtStart();
+        // ll.display();
+        // ll.deleteAtLast();
+        // ll.display();
+        // ll.reverseList();
+        // ll.display();
+        // ll.addAtLast(100);
+        // ll.display();
+        // ll.deleteAtIndex(3);
+        // ll.display();
+        // ll.deleteAtIndex(0);
+        // ll.display();
+        // ll.deleteAtIndex(7);
+        // ll.display();
+        // System.out.println("Middle :" + ll.middleNode(head).data);
+        // System.out.println(ll.hasCycle(head));
+        // ll.removeLoop(head);
         ll.display();
-        ll.addAtLast(10);
-        ll.addAtLast(20);
-        ll.addAtLast(30);
-        ll.addAtLast(40);
+        ll.zigZag(head);
         ll.display();
-        ll.addAtIndex(11, 0);
-        ll.display();
-        ll.addAtIndex(22, 9);
-        ll.display();
-        ll.addAtIndex(33, 9);
-        ll.display();
-        ll.deleteAtStart();
-        ll.display();
-        ll.deleteAtLast();
-        ll.display();
-        ll.reverseList();
-        ll.display();
-        ll.addAtLast(100);
-        ll.display();
-        ll.deleteAtIndex(3);
-        ll.display();
-        ll.deleteAtIndex(0);
-        ll.display();
-        ll.deleteAtIndex(7);
-        ll.display();
-        System.out.println("Middle :" + ll.middleNode(head).data);
-        System.out.println(ll.hasCycle(head));
-        ll.removeLoop(head);
     }
 
 }
